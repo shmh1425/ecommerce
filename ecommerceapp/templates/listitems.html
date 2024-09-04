@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        {% for item in items %}
+        {% csrf_token %}
+        <div class="col">
+            <div class="card mt-4" style="width: 18rem; position: relative;">
+                <img src="{{ item.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text" >{{item.nameitems}}</p>
+                    <p class="card-text" >{{item.price}} SR</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <a href="{% url 'details' id=item.id %}" class="btn btn-dark">show me!</a>
+                        <button onclick="add_to_cart({{item.id}})" style="background: none; border: none; padding: 0; cursor: pointer;">
+                            <i class="bi bi-bag-plus" style="color: black;"></i>
+                        </button>
+                    </div>
+                </div>
+                <a href="#" style="position: absolute; top: 10px; right: 10px;">
+                    <i class="bi bi-heart" style="color: black;"></i>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

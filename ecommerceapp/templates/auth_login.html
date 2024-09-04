@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card mt-5">
+   <div class="card-body bg-white d-flex justify-content-center align-items-center flex-column" style="min-height: 300px; border: 1px solid #ddd;">
+       <h2 class="mb-4" style="color: #000000;">Login</h2>
+       <form method="post" class="form-group w-50">
+           {% csrf_token %}
+           <div class="mb-3">
+               <label for="username" style="color: #000000;">Username:</label>
+               <input type="text" name="username" id="username" class="form-control" style="color: #000000; background-color: #f8f9fa; border: 1px solid #ccc;"> <!-- لون النص أسود وخلفية فاتحة -->
+           </div>
+           <div class="mb-3">
+               <label for="password" style="color: #000000;">Password:</label>
+               <input type="password" name="password" id="password" class="form-control" style="color: #000000; background-color: #f8f9fa; border: 1px solid #ccc;"> <!-- لون النص أسود وخلفية فاتحة -->
+           </div>
+
+           <div class="pt-2 mb-3 text-center">
+               <strong style="color: #000000;">Don't have an account? <a href="{% url 'auth_register' %}" style="color: #007bff;">Sign Up</a></strong> <!-- رابط التسجيل باللون الأزرق -->
+           </div>
+
+           <div class="d-grid gap-2">
+               <button class="btn btn-dark mt-3" type="submit">Login</button> 
+           </div>
+       </form>
+   </div>
+</div>
+
+{% endblock %}

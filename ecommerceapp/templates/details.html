@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block content %}
+{% csrf_token %}
+<section class="h-100 h-custom" style="background-color: #f7f7f7;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12">
+                <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                        <div class="row g-0">
+                            
+                            <!-- Product Details Section -->
+                            <div class="col-lg-6 bg-light">
+                                <div class="p-5">
+                                    <h3 class="fw-bold mb-5 mt-2 pt-1">Product Specifications</h3>
+                                    <hr class="my-4">
+                                    
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h5 class="text-uppercase">{{ data.items.nameitems }}</h5>
+                                        <h5>{{ data.items.price }} SAR</h5>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <small>{{ data.items.description }}</small>
+                                    </div>
+                                                                 
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <h5 class="text-uppercase">Tax</h5>
+                                        <h5>{{ data.tax }}</h5>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between mb-5">
+                                        <h5 class="text-uppercase">Total</h5>
+                                        <h5>{{ data.total }}</h5>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button onclick="add_to_cart({{ data.items.id }})" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger btn-block btn-lg" data-mdb-ripple-color="danger">
+                                            اضف الى السلة <i class="bi bi-bag-fill"></i>
+                                        </button>
+                                         
+                                        <a href="{% url 'checkout' data.items.id %} " class="btn btn-success btn-lg">pay now <i class="bi bi-credit-card-2-back"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Image and Details Section -->
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="d-flex justify-content-between align-items-center mb-5">
+                                        <h1 class="fw-bold mb-0">Product Details</h1>
+                                    </div>
+                                    <hr class="my-4">
+
+                                    <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                        <div class="col-md-4">
+                                            <img
+                                                src="{{data.items.image.url}}"
+                                                class="img-fluid rounded-3" alt="Product Image">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h6 class="text-muted">{{ data.items.category }}</h6>
+                                            <h6 class="mb-0">{{ data.items.nameitems }}</h6>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-4">
+
+                                    <div class="row mb-4">
+                                        <div class="col-md-12">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="quantity">Quantity</label>
+                                                <div class="d-flex">
+                                                    <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                    <input id="quantity" min="1" name="quantity" value="1" type="number" class="form-control form-control-sm" />
+                                                    <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <hr class="my-4">
+                                    
+                                    <div class="pt-5">
+                                        <h6 class="mb-0"><a href="#" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Continue Shopping</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

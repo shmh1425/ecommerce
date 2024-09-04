@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card position-relative border-0">
+    <video class="w-100 h-auto" autoplay muted loop>
+        <source src="\static\homepage.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center">
+        <h3 class="text-white mb-4">Discover Our Latest Collection</h3>
+        <a href="{% url 'page' %}" class="btn btn-lg" style="background-color: #000; color: #fff; border: none; padding: 15px 30px; font-size: 1.25rem; border-radius: 50px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            Shop Now
+        </a>
+    </div>
+</div>
+{% endblock content %}

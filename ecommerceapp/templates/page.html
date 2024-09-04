@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="display: flex; justify-content: space-between; width: 100%; max-width: 1200px; margin: 0 auto;" class="mt-5">
+    <div style="flex: 1; position: relative; margin-right: 20px;">
+        <img src="\static\bedroom.png" alt="Card 1" style="width: 100%; height: auto; border-radius: 8px;">
+        <a href="{% url 'bedrooms_list' %}" style="position:absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #f8f8f8; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; text-decoration: none;">
+            Bedroom
+        </a>
+    </div>
+    <div style="flex: 1; position: relative; margin-right: 20px;">
+        <img src="\static\Diningtable.png" alt="Card 2" style="width: 100%; height: auto; border-radius: 8px;">
+        <a href="{% url 'listitems' %}" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #f8f8f8; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; text-decoration: none;">
+            Dining table
+        </a>
+    </div>
+    <div style="flex: 1; position: relative; margin-right: 20px;">
+        <img src="\static\lightOutdoor.png" alt="Card 3" style="width: 100%; height: auto; border-radius: 8px;">
+        <a href="{% url 'lightoutdoor' %}" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #f8f8f8; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; text-decoration: none;">
+            light Outdoor
+        </a>
+    </div>
+    <div style="flex: 1; position: relative;">
+        <img src="\static\lightIndoor.png" alt="Card 4" style="width: 100%; height: auto; border-radius: 8px;">
+        <a href="{% url 'lightindoor' %}" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #f8f8f8; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; text-decoration: none;">
+            light Indoor
+        </a>
+    </div>
+</div>
+{% endblock content %}
